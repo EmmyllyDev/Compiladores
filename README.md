@@ -1,6 +1,6 @@
 # Compilador - Minha Linguagem
 
-Este repositório contém o desenvolvimento de um compilador para uma linguagem fictícia, com base em uma gramática que eu mesmo defino no arquivo "Minha Linguagem". O compilador é implementado utilizando a biblioteca ANTLR, e o objetivo é processar código-fonte, gerar tokens e relatar erros léxicos. A linguagem suportada neste compilador inclui estruturas como comandos condicionais, repetição e leitura/saída.
+Este repositório contém o desenvolvimento de um compilador para uma linguagem fictícia, com base em uma gramática que eu e Filomena Soares criamos e definimos no arquivo "Minha Linguagem". O compilador é implementado utilizando a biblioteca ANTLR, e o objetivo é processar código-fonte, gerar tokens e relatar erros léxicos. A linguagem suportada neste compilador inclui estruturas como comandos condicionais, repetição e leitura/saída.
 
 ## Funcionalidades
 
