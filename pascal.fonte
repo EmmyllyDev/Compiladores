@@ -1,0 +1,14 @@
+ler (n);
+se (n == 0 entao
+    escrever ("erro");
+senao
+    linha = 1;
+    enquanto (linha <= n) faça
+        coluna = 1;
+        enquanto (coluna <= linha) faça
+            escrever(coluna);
+            coluna = coluna + 1;
+        fim
+        linha = linha + 1;
+    fim
+fim
