@@ -1,32 +1,55 @@
 grammar fimly;
 
+// Tokens
 INICIO     : 'inicio' ;
-FIM        : 'fim' ;
+LEIA       : 'leia';
+ESCREVA    : 'escreva';
+ESCREVAL : 'escreval';
 FIM_AL     : 'fimalgoritmo' ;
-ESCREVER   : 'escrever' ;
-LER        : 'ler' ;
+VAR        : 'var' ;
 SE         : 'se' ;
 ENTAO      : 'entao' ;
 SENAO      : 'senao' ;
+FIM_SE     : 'fimse' ;
 ENQUANTO   : 'enquanto' ;
-FAÇA       : 'faça' ;
-INTEIRO    : 'inteiro' ;
-STRING     : '"' (~["\r\n])* '"';
-ID         : [a-zA-Z_] [a-zA-Z_0-9]* ;
-NUMERO     : [0-9]+ ;
-OP_ARIT    : '+' | '-' | '*' | '/' ;
-OP_LOGICO  : '&&' | '||' | '!' ;
-OP_COMPARACAO : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
-IGUAL      : '=' ;
+FACA       : 'faça' ;
+FIM_ENQ    : 'fimenquanto' ;
+INT       : 'inteiro' ;                       // Tipos de dados
+FLOAT     : 'float' ;
+STRING    : 'string' ;
+ID        : [a-zA-Z_] [a-zA-Z_0-9]*;         // Literais e identificadores
+NUMERO_INTEIRO   : [+-]? ('0' | [1-9] [0-9]*);
+NUMERO_FLOAT     : ('0'..'9')+ '.' ('0'..'9')*;
+CADEIA           : '"' ~["\r\n]* '"' ;
+OP_ARIT       : '+' | '-' | '*' | '/' ;     // Operadores
+OP_LOGICO     : '&&' | '||' | '!' ;
+OP_COMPARACAO : '!=' | '==' | '<' | '<=' | '>' | '>=' ;
+IGUAL      : '=' ;                          // Símbolos
 ABRE_PAR   : '(' ;
+DOIS_PONTOS: ':' ;
 FECHA_PAR  : ')' ;
 PONTO_VIR  : ';' ;
 ASPAS      : '"' ;
-ESP_BRANCO : [ \t\r\n]+ -> skip ; 
+VIRG       : ',' ;
+WS         : [ \t\n\r\f]+ -> skip ;  // Reconhece espaço em branco
 
 // Regras de gramática
 programa
-    : INICIO (comando)+ FIM_AL
+    : VAR declaracoes INICIO (comando)+ FIM_AL
+    ;
+
+declaracoes
+    : (declaracao_var)* 
+    ;
+
+declaracao_var
+    : ID DOIS_PONTOS tipo PONTO_VIR
+    ;
+
+tipo
+    : INT
+    | FLOAT
+    | STRING
     ;
 
 comando
@@ -35,36 +58,30 @@ comando
     | comando_condicional
     | comando_repeticao
     | comando_atribuicao
-    | comando_declaracao
     ;
 
 comando_ler
-    : LER ABRE_PAR ID FECHA_PAR PONTO_VIR
+    : LEIA ABRE_PAR ID FECHA_PAR 
     ;
 
 comando_escrever
-    : ESCREVER ABRE_PAR (ASPAS ID ASPAS | ID) FECHA_PAR PONTO_VIR
+    : (ESCREVA | ESCREVAL) ABRE_PAR lista_expressao? FECHA_PAR PONTO_VIR
+    ;
+
+lista_expressao
+    : expressao (VIRG expressao)*
     ;
 
 comando_condicional
-    : SE ABRE_PAR expressao FECHA_PAR ENTAO (comando)+ (SENAO (comando)+)? FIM
+    : SE ABRE_PAR expressao FECHA_PAR ENTAO (comando)+ (SENAO (comando)+)? FIM_SE
     ;
 
 comando_repeticao
-    : ENQUANTO ABRE_PAR expressao FECHA_PAR FAÇA (comando)+ FIM
+    : ENQUANTO ABRE_PAR expressao FECHA_PAR FACA (comando)+ FIM_ENQ
     ;
 
 comando_atribuicao
     : ID IGUAL expressao PONTO_VIR
-    ;
-
-comando_declaracao
-    : ID IGUAL ABRE_PAR tipo FECHA_PAR PONTO_VIR
-    ;
-
-tipo
-    : INTEIRO
-    | STRING
     ;
 
 expressao
@@ -78,8 +95,10 @@ expressao_aritmetica
     ;
 
 termo
-    : NUMERO
+    : NUMERO_INTEIRO
+    | NUMERO_FLOAT
     | ID
+    | CADEIA
     | ABRE_PAR expressao_aritmetica FECHA_PAR
     ;
 
@@ -88,14 +107,14 @@ expressao_logica
     ;
 
 fator_logico
-    : '!' fator_logico
+    : OP_LOGICO fator_logico         // para '!' (negação)
     | expressao_comparacao
     | ABRE_PAR expressao_logica FECHA_PAR
-    | ID
-    | NUMERO
+     | ID
+    | NUMERO_INTEIRO
+    | NUMERO_FLOAT
     ;
 
 expressao_comparacao
     : expressao_aritmetica OP_COMPARACAO expressao_aritmetica
-    | ID OP_COMPARACAO expressao_aritmetica
     ;

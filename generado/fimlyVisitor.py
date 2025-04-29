@@ -14,6 +14,21 @@ class fimlyVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by fimlyParser#declaracoes.
+    def visitDeclaracoes(self, ctx:fimlyParser.DeclaracoesContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by fimlyParser#declaracao_var.
+    def visitDeclaracao_var(self, ctx:fimlyParser.Declaracao_varContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by fimlyParser#tipo.
+    def visitTipo(self, ctx:fimlyParser.TipoContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by fimlyParser#comando.
     def visitComando(self, ctx:fimlyParser.ComandoContext):
         return self.visitChildren(ctx)
@@ -29,6 +44,11 @@ class fimlyVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by fimlyParser#lista_expressao.
+    def visitLista_expressao(self, ctx:fimlyParser.Lista_expressaoContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by fimlyParser#comando_condicional.
     def visitComando_condicional(self, ctx:fimlyParser.Comando_condicionalContext):
         return self.visitChildren(ctx)
@@ -41,16 +61,6 @@ class fimlyVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by fimlyParser#comando_atribuicao.
     def visitComando_atribuicao(self, ctx:fimlyParser.Comando_atribuicaoContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by fimlyParser#comando_declaracao.
-    def visitComando_declaracao(self, ctx:fimlyParser.Comando_declaracaoContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by fimlyParser#tipo.
-    def visitTipo(self, ctx:fimlyParser.TipoContext):
         return self.visitChildren(ctx)
 
 

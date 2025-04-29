@@ -1,8 +1,0 @@
-2025-04-28 22:14:30,603 - WARNING - ERRO SINTÁTICO [Linha 2, Coluna 4]: Esperado 'outro elemento válido', encontrado 'inteiro'.
-2025-04-28 22:14:30,610 - WARNING - ERRO SINTÁTICO [Linha 2, Coluna 13]: Esperado 'escrever', 'ler', 'se', 'enquanto', '<INVALID>', encontrado ';'.
-2025-04-28 22:14:30,611 - WARNING - ERRO SINTÁTICO [Linha 7, Coluna 13]: Esperado '<INVALID>', '"', encontrado '"Digite o numero de linhas do Triangulo de Pascal:"'.
-2025-04-28 22:14:30,614 - WARNING - ERRO SINTÁTICO [Linha 11, Coluna 17]: Esperado '<INVALID>', '"', encontrado '"Erro: O numero deve ser maior ou igual a 1."'.
-2025-04-28 22:14:30,616 - WARNING - ERRO SINTÁTICO [Linha 16, Coluna 8]: Esperado 'outro elemento válido', encontrado 'valor'.
-2025-04-28 22:14:30,618 - WARNING - ERRO SINTÁTICO [Linha 19, Coluna 12]: Esperado 'outro elemento válido', encontrado 'escrever'.
-2025-04-28 22:14:30,618 - WARNING - ERRO SINTÁTICO [Linha 20, Coluna 21]: Esperado '<INVALID>', '"', encontrado '" "'.
-2025-04-28 22:14:30,620 - WARNING - ERRO SINTÁTICO [Linha 24, Coluna 17]: Esperado '<INVALID>', '"', encontrado '"\n"'.

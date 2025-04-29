@@ -17,6 +17,33 @@ class fimlyListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by fimlyParser#declaracoes.
+    def enterDeclaracoes(self, ctx:fimlyParser.DeclaracoesContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#declaracoes.
+    def exitDeclaracoes(self, ctx:fimlyParser.DeclaracoesContext):
+        pass
+
+
+    # Enter a parse tree produced by fimlyParser#declaracao_var.
+    def enterDeclaracao_var(self, ctx:fimlyParser.Declaracao_varContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#declaracao_var.
+    def exitDeclaracao_var(self, ctx:fimlyParser.Declaracao_varContext):
+        pass
+
+
+    # Enter a parse tree produced by fimlyParser#tipo.
+    def enterTipo(self, ctx:fimlyParser.TipoContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#tipo.
+    def exitTipo(self, ctx:fimlyParser.TipoContext):
+        pass
+
+
     # Enter a parse tree produced by fimlyParser#comando.
     def enterComando(self, ctx:fimlyParser.ComandoContext):
         pass
@@ -44,6 +71,15 @@ class fimlyListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by fimlyParser#lista_expressao.
+    def enterLista_expressao(self, ctx:fimlyParser.Lista_expressaoContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#lista_expressao.
+    def exitLista_expressao(self, ctx:fimlyParser.Lista_expressaoContext):
+        pass
+
+
     # Enter a parse tree produced by fimlyParser#comando_condicional.
     def enterComando_condicional(self, ctx:fimlyParser.Comando_condicionalContext):
         pass
@@ -68,24 +104,6 @@ class fimlyListener(ParseTreeListener):
 
     # Exit a parse tree produced by fimlyParser#comando_atribuicao.
     def exitComando_atribuicao(self, ctx:fimlyParser.Comando_atribuicaoContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#comando_declaracao.
-    def enterComando_declaracao(self, ctx:fimlyParser.Comando_declaracaoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#comando_declaracao.
-    def exitComando_declaracao(self, ctx:fimlyParser.Comando_declaracaoContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#tipo.
-    def enterTipo(self, ctx:fimlyParser.TipoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#tipo.
-    def exitTipo(self, ctx:fimlyParser.TipoContext):
         pass
 
 

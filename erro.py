@@ -1,6 +1,9 @@
 import logging
+from antlr4 import CommonTokenStream, FileStream
+from antlr4 import ParseTreeWalker
 from antlr4.error.ErrorListener import ErrorListener
 
+# Classe para tratar erros
 class CustomErrorListener(ErrorListener):
     def __init__(self):
         super(CustomErrorListener, self).__init__()
@@ -37,10 +40,9 @@ class CustomErrorListener(ErrorListener):
             mensagem = f"ERRO SINTÁTICO [Linha {line}, Coluna {column}]: Esperado '{esperado}', encontrado '{encontrado}'."
             print(f"\033[91m{mensagem}\033[0m")  # Exibe em vermelho no console
             logging.warning(mensagem)  # Loga o erro sintático
-
-# Exemplo de configuração do logging para registrar os erros em um arquivo
-logging.basicConfig(
-    filename="compilador.log",
-    level=logging.WARNING,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+            
+# Função para exibir tokens
+def exibir_tokens(lexer):
+    print("\nTokens utilizados:")
+    for token in lexer.getAllTokens():
+        print(f"<{token.type}, '{token.text}', Linha {token.line}, Coluna {token.column}>")
