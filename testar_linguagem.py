@@ -1,38 +1,26 @@
 from antlr4 import *
-from antlr4.error.ErrorListener import ErrorListener
-from minhaLinguagemLexer import minhaLinguagemLexer
-import sys
-
-class MyErrorListener(ErrorListener):
-    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        print(f"ERRO LÉXICO [Linha {line}, Coluna {column}]: Símbolo '{offendingSymbol.text}' inválido.")
-        sys.exit(1)
+from generado.fimlyLexer import fimlyLexer 
+from generado.fimlyParser import fimlyParser 
+from tratar_erro import CustomErrorListener 
 
 def main():
-    input_stream = FileStream('pascal.fonte', encoding='utf-8')
+    # Lê o código fonte
+    input_stream = FileStream("codigo.fimly", encoding="utf-8")
 
-    lexer = minhaLinguagemLexer(input_stream)
+    lexer = fimlyLexer(input_stream)
+    token_stream = CommonTokenStream(lexer)
+    parser = fimlyParser(token_stream)
 
-    lexer.removeErrorListeners()
-    lexer.addErrorListener(MyErrorListener())
+    erro_listener = CustomErrorListener()
+    parser.removeErrorListeners()  # Remove os listeners padrão
+    parser.addErrorListener(erro_listener)  # Adiciona o listener customizado
+    
+    tree = parser.programa()
 
-    token = lexer.nextToken()
-    with open('log_tokens.txt', 'w', encoding='utf-8') as log_file:
-        while token.type != Token.EOF:
+    if erro_listener.tem_erro:
+        print("Foram encontrados erros no código.")
+    else:
+        print("Código analisado com sucesso!")
 
-            if token.type >= len(lexer.symbolicNames) or lexer.symbolicNames[token.type] is None:
-                token_type = f"UNKNOWN({token.type})"
-            else:
-                token_type = lexer.symbolicNames[token.type]
-            lexema = token.text
-            linha = token.line
-            coluna = token.column
-
-            output = f"<{token_type}, '{lexema}', Linha {linha}, Coluna {coluna}>"
-            print(output)
-            log_file.write(output + '\n')
-
-            token = lexer.nextToken()
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

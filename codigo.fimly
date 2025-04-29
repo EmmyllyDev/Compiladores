@@ -1,0 +1,27 @@
+inicio
+    inteiro n;
+    inteiro i;
+    inteiro j;
+    inteiro valor;
+
+    escrever("Digite o numero de linhas do Triangulo de Pascal:");
+    ler(n);
+
+    se (n < 1) entao
+        escrever("Erro: O numero deve ser maior ou igual a 1.");
+    fim
+
+    i = 0;
+    enquanto (i < n)
+        valor = 1;
+        j = 0;
+        enquanto (j <= i)
+            escrever(valor);
+            escrever(" ");
+            valor = valor * (i - j) / (j + 1);
+            j = j + 1;
+        fim
+        escrever("\n");
+        i = i + 1;
+    fim
+fimalgoritmo
