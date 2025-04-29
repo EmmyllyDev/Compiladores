@@ -1,8 +1,8 @@
 from antlr4 import *
 from generado.fimlyLexer import fimlyLexer 
 from generado.fimlyParser import fimlyParser 
-from errro import CustomErrorListener, exibir_tokens
-from graphviz import Digraph
+from erro import CustomErrorListener, exibir_tokens
+from graphviz import Digraph 
 
 def gerar_imagem_ast(tree, nome_arquivo="ast", parser=None):
     # Cria um gráfico dirigido (digraph)
@@ -35,11 +35,10 @@ def gerar_imagem_ast(tree, nome_arquivo="ast", parser=None):
 def main():
     # Lê o código fonte
     input_stream = FileStream('codigo.fimly', encoding="utf-8")
-    with open('codigo.fimly', 'r', encoding='utf-8') as file:
+    with open('codigo.fimly', 'r', encoding='utf-8') as file:   
         codigo_fonte = file.read()  # Lê o conteúdo do arquivo
 
     # Exibe o código fonte no terminal
-    print("Código fonte:")
     print(codigo_fonte)
 
 
@@ -49,7 +48,7 @@ def main():
 
     # Instancia o parser
     parser = fimlyParser(token_stream)
-
+    
     # Associa o erro listener personalizado
     error_listener = CustomErrorListener()
     parser.removeErrorListeners()  # Remove listeners padrão

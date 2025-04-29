@@ -1,24 +1,27 @@
-inicio
-    n, i, j, valor: inteiro;
+var
+    i: inteiro;
+    j: inteiro;
+    n: inteiro;
+    valor: inteiro;
 
-    escreva("Digite o número de linhas do Triângulo de Pascal:");
+inicio
+    escreva("Digite o número de linhas do Triângulo de Pascal: ");
     leia(n);
 
     se (n < 1) entao
-        escreva("Erro: O número deve ser maior ou igual a 1.");
-    fimse;
+        escreval("Erro: O número deve ser maior ou igual a 1.");
+    fimse
 
     i = 0;
-    enquanto (i < n) faça
+    enquanto (i < n) faca
         valor = 1;
         j = 0;
-        enquanto (j <= i) faça
+        enquanto (j <= i) faca
             escreva(valor, " ");
             valor = valor * (i - j) / (j + 1);
             j = j + 1;
-        fimenquanto;
-
-        escreva(""); // para quebrar a linha
+        fimenquanto
+        escreval("");
         i = i + 1;
-    fimenquanto;
+    fimenquanto
 fimalgoritmo

@@ -16,11 +16,11 @@ public class fimlyLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		INICIO=1, LEIA=2, ESCREVA=3, ESCREVAL=4, FIM_AL=5, VAR=6, SE=7, ENTAO=8, 
+		INICIO=1, LEIA=2, ESCREVA=3, ESCREVAL=4, VAR=5, FIM_AL=6, SE=7, ENTAO=8, 
 		SENAO=9, FIM_SE=10, ENQUANTO=11, FACA=12, FIM_ENQ=13, INT=14, FLOAT=15, 
 		STRING=16, ID=17, NUMERO_INTEIRO=18, NUMERO_FLOAT=19, CADEIA=20, OP_ARIT=21, 
-		OP_LOGICO=22, OP_COMPARACAO=23, IGUAL=24, ABRE_PAR=25, DOIS_PONTOS=26, 
-		FECHA_PAR=27, PONTO_VIR=28, ASPAS=29, VIRG=30, WS=31;
+		OP_LOGICO=22, OP_COMPARACAO=23, IGUAL=24, ABRE_PAR=25, FECHA_PAR=26, DOIS_PONTOS=27, 
+		PONTO_VIR=28, ASPAS=29, VIRG=30, WS=31;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -31,10 +31,10 @@ public class fimlyLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"INICIO", "LEIA", "ESCREVA", "ESCREVAL", "FIM_AL", "VAR", "SE", "ENTAO", 
+			"INICIO", "LEIA", "ESCREVA", "ESCREVAL", "VAR", "FIM_AL", "SE", "ENTAO", 
 			"SENAO", "FIM_SE", "ENQUANTO", "FACA", "FIM_ENQ", "INT", "FLOAT", "STRING", 
 			"ID", "NUMERO_INTEIRO", "NUMERO_FLOAT", "CADEIA", "OP_ARIT", "OP_LOGICO", 
-			"OP_COMPARACAO", "IGUAL", "ABRE_PAR", "DOIS_PONTOS", "FECHA_PAR", "PONTO_VIR", 
+			"OP_COMPARACAO", "IGUAL", "ABRE_PAR", "FECHA_PAR", "DOIS_PONTOS", "PONTO_VIR", 
 			"ASPAS", "VIRG", "WS"
 		};
 	}
@@ -42,19 +42,19 @@ public class fimlyLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'inicio'", "'leia'", "'escreva'", "'escreval'", "'fimalgoritmo'", 
-			"'var'", "'se'", "'entao'", "'senao'", "'fimse'", "'enquanto'", "'fa\\u00E7a'", 
-			"'fimenquanto'", "'inteiro'", "'float'", "'string'", null, null, null, 
-			null, null, null, null, "'='", "'('", "':'", "')'", "';'", "'\"'", "','"
+			null, "'inicio'", "'leia'", "'escreva'", "'escreval'", "'var'", "'fimalgoritmo'", 
+			"'se'", "'entao'", "'senao'", "'fimse'", "'enquanto'", "'faca'", "'fimenquanto'", 
+			"'inteiro'", "'float'", "'string'", null, null, null, null, null, null, 
+			null, "'='", "'('", "')'", "':'", "';'", "'\"'", "','"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "INICIO", "LEIA", "ESCREVA", "ESCREVAL", "FIM_AL", "VAR", "SE", 
+			null, "INICIO", "LEIA", "ESCREVA", "ESCREVAL", "VAR", "FIM_AL", "SE", 
 			"ENTAO", "SENAO", "FIM_SE", "ENQUANTO", "FACA", "FIM_ENQ", "INT", "FLOAT", 
 			"STRING", "ID", "NUMERO_INTEIRO", "NUMERO_FLOAT", "CADEIA", "OP_ARIT", 
-			"OP_LOGICO", "OP_COMPARACAO", "IGUAL", "ABRE_PAR", "DOIS_PONTOS", "FECHA_PAR", 
+			"OP_LOGICO", "OP_COMPARACAO", "IGUAL", "ABRE_PAR", "FECHA_PAR", "DOIS_PONTOS", 
 			"PONTO_VIR", "ASPAS", "VIRG", "WS"
 		};
 	}
@@ -132,9 +132,9 @@ public class fimlyLexer extends Lexer {
 		"\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
 		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0003\u0001\u0003"+
 		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004"+
-		"\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
+		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005"+
+		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
+		"\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
 		"\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007"+
 		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\b\u0001\b\u0001\b\u0001\b\u0001"+
 		"\b\u0001\b\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\n\u0001"+
@@ -180,7 +180,7 @@ public class fimlyLexer extends Lexer {
 		"\u0000\u0000\u0000\u00009\u0001\u0000\u0000\u0000\u0000;\u0001\u0000\u0000"+
 		"\u0000\u0000=\u0001\u0000\u0000\u0000\u0001?\u0001\u0000\u0000\u0000\u0003"+
 		"F\u0001\u0000\u0000\u0000\u0005K\u0001\u0000\u0000\u0000\u0007S\u0001"+
-		"\u0000\u0000\u0000\t\\\u0001\u0000\u0000\u0000\u000bi\u0001\u0000\u0000"+
+		"\u0000\u0000\u0000\t\\\u0001\u0000\u0000\u0000\u000b`\u0001\u0000\u0000"+
 		"\u0000\rm\u0001\u0000\u0000\u0000\u000fp\u0001\u0000\u0000\u0000\u0011"+
 		"v\u0001\u0000\u0000\u0000\u0013|\u0001\u0000\u0000\u0000\u0015\u0082\u0001"+
 		"\u0000\u0000\u0000\u0017\u008b\u0001\u0000\u0000\u0000\u0019\u0090\u0001"+
@@ -201,13 +201,13 @@ public class fimlyLexer extends Lexer {
 		"\u0000R\u0006\u0001\u0000\u0000\u0000ST\u0005e\u0000\u0000TU\u0005s\u0000"+
 		"\u0000UV\u0005c\u0000\u0000VW\u0005r\u0000\u0000WX\u0005e\u0000\u0000"+
 		"XY\u0005v\u0000\u0000YZ\u0005a\u0000\u0000Z[\u0005l\u0000\u0000[\b\u0001"+
-		"\u0000\u0000\u0000\\]\u0005f\u0000\u0000]^\u0005i\u0000\u0000^_\u0005"+
-		"m\u0000\u0000_`\u0005a\u0000\u0000`a\u0005l\u0000\u0000ab\u0005g\u0000"+
-		"\u0000bc\u0005o\u0000\u0000cd\u0005r\u0000\u0000de\u0005i\u0000\u0000"+
-		"ef\u0005t\u0000\u0000fg\u0005m\u0000\u0000gh\u0005o\u0000\u0000h\n\u0001"+
-		"\u0000\u0000\u0000ij\u0005v\u0000\u0000jk\u0005a\u0000\u0000kl\u0005r"+
-		"\u0000\u0000l\f\u0001\u0000\u0000\u0000mn\u0005s\u0000\u0000no\u0005e"+
-		"\u0000\u0000o\u000e\u0001\u0000\u0000\u0000pq\u0005e\u0000\u0000qr\u0005"+
+		"\u0000\u0000\u0000\\]\u0005v\u0000\u0000]^\u0005a\u0000\u0000^_\u0005"+
+		"r\u0000\u0000_\n\u0001\u0000\u0000\u0000`a\u0005f\u0000\u0000ab\u0005"+
+		"i\u0000\u0000bc\u0005m\u0000\u0000cd\u0005a\u0000\u0000de\u0005l\u0000"+
+		"\u0000ef\u0005g\u0000\u0000fg\u0005o\u0000\u0000gh\u0005r\u0000\u0000"+
+		"hi\u0005i\u0000\u0000ij\u0005t\u0000\u0000jk\u0005m\u0000\u0000kl\u0005"+
+		"o\u0000\u0000l\f\u0001\u0000\u0000\u0000mn\u0005s\u0000\u0000no\u0005"+
+		"e\u0000\u0000o\u000e\u0001\u0000\u0000\u0000pq\u0005e\u0000\u0000qr\u0005"+
 		"n\u0000\u0000rs\u0005t\u0000\u0000st\u0005a\u0000\u0000tu\u0005o\u0000"+
 		"\u0000u\u0010\u0001\u0000\u0000\u0000vw\u0005s\u0000\u0000wx\u0005e\u0000"+
 		"\u0000xy\u0005n\u0000\u0000yz\u0005a\u0000\u0000z{\u0005o\u0000\u0000"+
@@ -218,13 +218,13 @@ public class fimlyLexer extends Lexer {
 		"\u0000\u0085\u0086\u0005u\u0000\u0000\u0086\u0087\u0005a\u0000\u0000\u0087"+
 		"\u0088\u0005n\u0000\u0000\u0088\u0089\u0005t\u0000\u0000\u0089\u008a\u0005"+
 		"o\u0000\u0000\u008a\u0016\u0001\u0000\u0000\u0000\u008b\u008c\u0005f\u0000"+
-		"\u0000\u008c\u008d\u0005a\u0000\u0000\u008d\u008e\u0005\u00e7\u0000\u0000"+
-		"\u008e\u008f\u0005a\u0000\u0000\u008f\u0018\u0001\u0000\u0000\u0000\u0090"+
-		"\u0091\u0005f\u0000\u0000\u0091\u0092\u0005i\u0000\u0000\u0092\u0093\u0005"+
-		"m\u0000\u0000\u0093\u0094\u0005e\u0000\u0000\u0094\u0095\u0005n\u0000"+
-		"\u0000\u0095\u0096\u0005q\u0000\u0000\u0096\u0097\u0005u\u0000\u0000\u0097"+
-		"\u0098\u0005a\u0000\u0000\u0098\u0099\u0005n\u0000\u0000\u0099\u009a\u0005"+
-		"t\u0000\u0000\u009a\u009b\u0005o\u0000\u0000\u009b\u001a\u0001\u0000\u0000"+
+		"\u0000\u008c\u008d\u0005a\u0000\u0000\u008d\u008e\u0005c\u0000\u0000\u008e"+
+		"\u008f\u0005a\u0000\u0000\u008f\u0018\u0001\u0000\u0000\u0000\u0090\u0091"+
+		"\u0005f\u0000\u0000\u0091\u0092\u0005i\u0000\u0000\u0092\u0093\u0005m"+
+		"\u0000\u0000\u0093\u0094\u0005e\u0000\u0000\u0094\u0095\u0005n\u0000\u0000"+
+		"\u0095\u0096\u0005q\u0000\u0000\u0096\u0097\u0005u\u0000\u0000\u0097\u0098"+
+		"\u0005a\u0000\u0000\u0098\u0099\u0005n\u0000\u0000\u0099\u009a\u0005t"+
+		"\u0000\u0000\u009a\u009b\u0005o\u0000\u0000\u009b\u001a\u0001\u0000\u0000"+
 		"\u0000\u009c\u009d\u0005i\u0000\u0000\u009d\u009e\u0005n\u0000\u0000\u009e"+
 		"\u009f\u0005t\u0000\u0000\u009f\u00a0\u0005e\u0000\u0000\u00a0\u00a1\u0005"+
 		"i\u0000\u0000\u00a1\u00a2\u0005r\u0000\u0000\u00a2\u00a3\u0005o\u0000"+
@@ -271,8 +271,8 @@ public class fimlyLexer extends Lexer {
 		"\u00e8\u0001\u0000\u0000\u0000\u00ed\u00ea\u0001\u0000\u0000\u0000\u00ed"+
 		"\u00eb\u0001\u0000\u0000\u0000\u00ee.\u0001\u0000\u0000\u0000\u00ef\u00f0"+
 		"\u0005=\u0000\u0000\u00f00\u0001\u0000\u0000\u0000\u00f1\u00f2\u0005("+
-		"\u0000\u0000\u00f22\u0001\u0000\u0000\u0000\u00f3\u00f4\u0005:\u0000\u0000"+
-		"\u00f44\u0001\u0000\u0000\u0000\u00f5\u00f6\u0005)\u0000\u0000\u00f66"+
+		"\u0000\u0000\u00f22\u0001\u0000\u0000\u0000\u00f3\u00f4\u0005)\u0000\u0000"+
+		"\u00f44\u0001\u0000\u0000\u0000\u00f5\u00f6\u0005:\u0000\u0000\u00f66"+
 		"\u0001\u0000\u0000\u0000\u00f7\u00f8\u0005;\u0000\u0000\u00f88\u0001\u0000"+
 		"\u0000\u0000\u00f9\u00fa\u0005\"\u0000\u0000\u00fa:\u0001\u0000\u0000"+
 		"\u0000\u00fb\u00fc\u0005,\u0000\u0000\u00fc<\u0001\u0000\u0000\u0000\u00fd"+
