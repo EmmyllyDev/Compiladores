@@ -1,4 +1,4 @@
-# Generated from fimly.g4 by ANTLR 4.13.2
+# Generated from fimly.g4 by ANTLR 4.13.1
 from antlr4 import *
 if "." in __name__:
     from .fimlyParser import fimlyParser
@@ -95,24 +95,6 @@ class fimlyListener(ParseTreeListener):
 
     # Exit a parse tree produced by fimlyParser#comando_condicional.
     def exitComando_condicional(self, ctx:fimlyParser.Comando_condicionalContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#comando_se.
-    def enterComando_se(self, ctx:fimlyParser.Comando_seContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#comando_se.
-    def exitComando_se(self, ctx:fimlyParser.Comando_seContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#comando_senao.
-    def enterComando_senao(self, ctx:fimlyParser.Comando_senaoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#comando_senao.
-    def exitComando_senao(self, ctx:fimlyParser.Comando_senaoContext):
         pass
 
 

@@ -4,7 +4,6 @@ grammar fimly;
 INICIO     : 'inicio';
 LEIA       : 'leia';
 ESCREVA    : 'escreva';
-ESCREVAL   : 'escreval';
 VAR        : 'var' ;
 FIM_AL     : 'fimalgoritmo';
 SE         : 'se' ;
@@ -14,32 +13,43 @@ FIM_SE     : 'fimse' ;
 ENQUANTO   : 'enquanto' ;
 FACA       : 'faca' ;
 FIM_ENQ    : 'fimenquanto' ;
-INT        : 'inteiro' ;
-FLOAT      : 'float' ;
-STRING     : 'string' ;
-ID         : [a-zA-Z_] [a-zA-Z_0-9]*;
-NUMERO_INTEIRO : [+-]? ('0' | [1-9] [0-9]*);
-NUMERO_FLOAT   : ('0'..'9')+ '.' ('0'..'9')*;
-CADEIA         : '"' ~["\r\n]* '"' ;
-OP_ARIT        : '+' | '-' | '*' | '/' ;
-OP_LOGICO      : '&&' | '||' | '!' ;
-OP_COMPARACAO  : '!=' | '==' | '<' | '<=' | '>' | '>=' ;
-IGUAL          : '=' ;
-ABRE_PAR       : '(' ;
-FECHA_PAR      : ')' ;
-DOIS_PONTOS    : ':' ;
-PONTO_VIR      : ';' ;
-ASPAS          : '"' ;
-VIRG           : ',' ;
-WS             : [ \t\n\r\f]+ -> skip ;
+
+// Tipos de dados
+INT       : 'inteiro' ;                      
+FLOAT     : 'float' ;
+STRING    : 'string' ;
+
+// Literais e identificadores
+ID        : [a-zA-Z_] [a-zA-Z_0-9]*;         
+NUMERO_INTEIRO   : [+-]? ('0' | [1-9] [0-9]*);
+NUMERO_FLOAT     : ('0'..'9')+ '.' ('0'..'9')*;
+CADEIA           : '"' ~["\r\n]* '"' ;
+
+// Operadores
+OP_ARIT       : '+' | '-' | '*' | '/' ;   
+OP_LOGICO     : '&&' | '||' | '!' ;
+OP_COMPARACAO : '!=' | '==' | '<' | '<=' | '>' | '>=' ;
+
+// Símbolos
+IGUAL      : '=' ;                      
+ABRE_PAR   : '(' ;
+DOIS_PONTOS: ':' ;
+FECHA_PAR  : ')' ;
+PONTO_VIR  : ';' ;
+ASPAS      : '"' ;
+VIRG       : ',' ;
+
+// Reconhece espaço em branco
+WS         : [ \t\n\r\f]+ -> skip ;
+
 
 // Regras de gramática
 fimly
-    : (declaracoes)? INICIO (comando)+ FIM_AL
+    : declaracoes INICIO comandos FIM_AL 
     ;
 
 declaracoes
-    : VAR (declaracao_var)+
+    : VAR (declaracao_var)*
     ;
 
 declaracao_var
@@ -52,8 +62,7 @@ tipo
     | STRING
     ;
 
-// Bloco agrupando comandos
-bloco
+comandos 
     : (comando)*
     ;
 
@@ -70,19 +79,20 @@ comando_ler
     ;
 
 comando_escrever
-    : (ESCREVA | ESCREVAL) ABRE_PAR lista_expressao? FECHA_PAR PONTO_VIR
+    : ESCREVA ABRE_PAR lista_expressao? FECHA_PAR PONTO_VIR
     ;
 
 lista_expressao
-    : expressao (VIRG expressao)*
+    : expressao (expressao)*
+    | CADEIA
     ;
 
 comando_condicional
-    : SE ABRE_PAR expressao FECHA_PAR ENTAO bloco (SENAO bloco)? FIM_SE
+    : SE ABRE_PAR expressao FECHA_PAR ENTAO comandos (SENAO comandos)? FIM_SE
     ;
 
 comando_repeticao
-    : ENQUANTO ABRE_PAR expressao FECHA_PAR FACA bloco FIM_ENQ
+    : ENQUANTO ABRE_PAR expressao FECHA_PAR FACA comandos FIM_ENQ
     ;
 
 comando_atribuicao
@@ -95,7 +105,11 @@ expressao
     ;
 
 expressao_aritmetica
-    : termo (OP_ARIT termo)*
+    : expressao_aritmetica OP_ARIT expressao_aritmetica
+    | ABRE_PAR expressao_aritmetica FECHA_PAR
+    | NUMERO_INTEIRO
+    | NUMERO_FLOAT
+    | ID
     ;
 
 termo
@@ -103,18 +117,18 @@ termo
     | NUMERO_FLOAT
     | ID
     | CADEIA
-    | ABRE_PAR expressao FECHA_PAR
+    | ABRE_PAR expressao_aritmetica FECHA_PAR
     ;
 
 expressao_logica
-    : fator_logico (OP_LOGICO fator_logico)*
+    : expressao_comparacao (OP_LOGICO expressao_comparacao)*    
     ;
 
 fator_logico
-    : OP_LOGICO fator_logico
+    : OP_LOGICO fator_logico         // para '!' (negação)
     | expressao_comparacao
     | ABRE_PAR expressao_logica FECHA_PAR
-    | ID
+     | ID
     | NUMERO_INTEIRO
     | NUMERO_FLOAT
     ;
