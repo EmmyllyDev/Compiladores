@@ -1,8 +1,7 @@
 var
-    n: 5;
     i: inteiro;
     j: inteiro;
-    k: inteiro
+    k: inteiro;
     valor: inteiro;
 
 inicio

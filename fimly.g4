@@ -45,7 +45,7 @@ WS         : [ \t\n\r\f]+ -> skip ;
 
 // Regras de gramática
 fimly
-    : declaracoes INICIO comandos FIM_AL 
+    : declaracoes INICIO comandos FIM_AL EOF
     ;
 
 declaracoes
@@ -105,11 +105,7 @@ expressao
     ;
 
 expressao_aritmetica
-    : expressao_aritmetica OP_ARIT expressao_aritmetica
-    | ABRE_PAR expressao_aritmetica FECHA_PAR
-    | NUMERO_INTEIRO
-    | NUMERO_FLOAT
-    | ID
+    : termo ((OP_ARIT termo)*) // Adiciona a precedência correta para os termos
     ;
 
 termo

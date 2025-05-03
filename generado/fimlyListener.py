@@ -8,12 +8,12 @@ else:
 # This class defines a complete listener for a parse tree produced by fimlyParser.
 class fimlyListener(ParseTreeListener):
 
-    # Enter a parse tree produced by fimlyParser#programa.
-    def enterPrograma(self, ctx:fimlyParser.ProgramaContext):
+    # Enter a parse tree produced by fimlyParser#fimly.
+    def enterFimly(self, ctx:fimlyParser.FimlyContext):
         pass
 
-    # Exit a parse tree produced by fimlyParser#programa.
-    def exitPrograma(self, ctx:fimlyParser.ProgramaContext):
+    # Exit a parse tree produced by fimlyParser#fimly.
+    def exitFimly(self, ctx:fimlyParser.FimlyContext):
         pass
 
 
@@ -41,6 +41,15 @@ class fimlyListener(ParseTreeListener):
 
     # Exit a parse tree produced by fimlyParser#tipo.
     def exitTipo(self, ctx:fimlyParser.TipoContext):
+        pass
+
+
+    # Enter a parse tree produced by fimlyParser#comandos.
+    def enterComandos(self, ctx:fimlyParser.ComandosContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#comandos.
+    def exitComandos(self, ctx:fimlyParser.ComandosContext):
         pass
 
 
