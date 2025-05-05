@@ -1,33 +1,60 @@
-var
-    i: inteiro;
-    j: inteiro;
-    k: inteiro;
-    valor: inteiro;
+// ---------- Triangulo de Pascal -------------
+n: int;
+i: int;
+j: int;
+k: int;
+valor: int;
 
-inicio
-    leia(n);
-    se (n < 1) entao
+  inicio
+    n = 5;  
+    se (n < 1) {
         escreva("Erro: numero deve ser maior ou igual a 1");
-    senao
+    } senao {
         i = 0;
-        enquanto (i < n) faca
+        enquanto (i < n) faca {
             j = 0;
-            enquanto (j <= i) faca
+            enquanto (j <= i) faca {
                 valor = 1;
-                se (j > 0) entao
+                se (j > 0) {
                     valor = 1;
                     k = 0;
-                    enquanto (k < j) faca
+                    enquanto (k < j) faca {
                         valor = (valor * (i - k));
                         valor = (valor / (k + 1));
                         k = k + 1;
-                    fimenquanto
-                fimse
-                escreva(valor);
+                    }
+                }
+                escreva(valor);  
                 j = j + 1;
-            fimenquanto
+            }
             escreva(""); 
             i = i + 1;
-        fimenquanto
-    fimse
-fimalgoritmo
+        }
+    }
+fim
+
+// -------- Classificacao de Triangulos -------------
+
+a = float;
+b = float;
+c = float;
+
+inicio
+    a = 3.0;
+    b = 4.0;
+    c = 5.0;
+    
+    se (a <= 0 || b <= 0 || c <= 0) entao {
+        escreva("Medidas invalidas");
+    } senao {
+        se (a == b && b == c) {
+            escreva("Triangulo equilatero valido");
+        } senao {
+            se (a == b || b == c || a == c) entao {
+                escreva("Triangulo isosceles valido");
+            } senao {
+                escreva("Triangulo escaleno valido");
+            }   
+        }
+    }
+fim

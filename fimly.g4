@@ -4,69 +4,68 @@ grammar fimly;
 INICIO     : 'inicio';
 LEIA       : 'leia';
 ESCREVA    : 'escreva';
-VAR        : 'var' ;
-FIM_AL     : 'fimalgoritmo';
+FIM        : 'fim';
 SE         : 'se' ;
 ENTAO      : 'entao' ;
 SENAO      : 'senao' ;
-FIM_SE     : 'fimse' ;
 ENQUANTO   : 'enquanto' ;
 FACA       : 'faca' ;
-FIM_ENQ    : 'fimenquanto' ;
 
 // Tipos de dados
-INT       : 'inteiro' ;                      
-FLOAT     : 'float' ;
-STRING    : 'string' ;
-
-// Literais e identificadores
-ID        : [a-zA-Z_] [a-zA-Z_0-9]*;         
-NUMERO_INTEIRO   : [+-]? ('0' | [1-9] [0-9]*);
-NUMERO_FLOAT     : ('0'..'9')+ '.' ('0'..'9')*;
-CADEIA           : '"' ~["\r\n]* '"' ;
-
-// Operadores
-OP_ARIT       : '+' | '-' | '*' | '/' ;   
-OP_LOGICO     : '&&' | '||' | '!' ;
-OP_COMPARACAO : '!=' | '==' | '<' | '<=' | '>' | '>=' ;
+TIPO_INTEIRO   : 'int' ;                      
+TIPO_FLOAT     : 'float' ;
+TIPO_STRING    : 'string' ;
 
 // Símbolos
-IGUAL      : '=' ;                      
+ADICAO     : '+' ;
+SUBTRACAO  : '-' ;
+DIVISAO    : '/' ;
+MULTIPLICA : '*' ;
+IGUAL      : '==';
+DIFERENTE  : '!=';
+MAIORIGUAL : '>=';
+MENORIGUAL : '<=';
+MAIOR      : '>';
+MENOR      : '<';
+ATRIBUICAO : '=';
+NAO        : '!';
+E          : '&&';
+OU         : '||';
 ABRE_PAR   : '(' ;
 DOIS_PONTOS: ':' ;
 FECHA_PAR  : ')' ;
+ABRE_CHAVE : '{' ;
+FECHA_CHAVE: '}' ;
 PONTO_VIR  : ';' ;
-ASPAS      : '"' ;
 VIRG       : ',' ;
 
+// Literais e identificadores
+ID        : [a-zA-Z_] [a-zA-Z_0-9]*;         
+INTEIRO   : ('0'..'9')+;
+FLOAT     : ('0'..'9')+ '.' ('0'..'9')*;
+STRING    : '"' ~["\r\n]* '"' ;
+
 // Reconhece espaço em branco
+COMENTARIO : '//' ~[\r\n]* -> skip ;
 WS         : [ \t\n\r\f]+ -> skip ;
 
 
 // Regras de gramática
 fimly
-    : declaracoes INICIO comandos FIM_AL EOF
+    : (comando_declaracao)* INICIO comandos* FIM
     ;
 
-declaracoes
-    : VAR (declaracao_var)*
-    ;
-
-declaracao_var
+comando_declaracao
     : ID DOIS_PONTOS tipo PONTO_VIR
     ;
 
 tipo
-    : INT
-    | FLOAT
-    | STRING
+    : TIPO_INTEIRO
+    | TIPO_FLOAT
+    | TIPO_STRING
     ;
 
-comandos 
-    : (comando)*
-    ;
-
-comando
+comandos
     : comando_ler
     | comando_escrever
     | comando_condicional
@@ -83,52 +82,47 @@ comando_escrever
     ;
 
 lista_expressao
-    : expressao (expressao)*
-    | CADEIA
+    : expressao (VIRG expressao)*
     ;
 
+bloco_comandos: ABRE_CHAVE comandos* FECHA_CHAVE;
+
 comando_condicional
-    : SE ABRE_PAR expressao FECHA_PAR ENTAO comandos (SENAO comandos)? FIM_SE
+    : SE ABRE_PAR expressao FECHA_PAR bloco_comandos (SENAO bloco_comandos)?
     ;
 
 comando_repeticao
-    : ENQUANTO ABRE_PAR expressao FECHA_PAR FACA comandos FIM_ENQ
+    : ENQUANTO ABRE_PAR expressao FECHA_PAR FACA bloco_comandos
     ;
 
 comando_atribuicao
-    : ID IGUAL expressao PONTO_VIR
+    : ID ATRIBUICAO expressao PONTO_VIR
     ;
 
 expressao
     : expressao_logica
-    | expressao_aritmetica
-    ;
-
-expressao_aritmetica
-    : termo ((OP_ARIT termo)*) // Adiciona a precedência correta para os termos
-    ;
-
-termo
-    : NUMERO_INTEIRO
-    | NUMERO_FLOAT
-    | ID
-    | CADEIA
-    | ABRE_PAR expressao_aritmetica FECHA_PAR
     ;
 
 expressao_logica
-    : expressao_comparacao (OP_LOGICO expressao_comparacao)*    
-    ;
-
-fator_logico
-    : OP_LOGICO fator_logico         // para '!' (negação)
-    | expressao_comparacao
-    | ABRE_PAR expressao_logica FECHA_PAR
-     | ID
-    | NUMERO_INTEIRO
-    | NUMERO_FLOAT
+    : expressao_comparacao ( (E | OU) expressao_comparacao )*
     ;
 
 expressao_comparacao
-    : expressao_aritmetica OP_COMPARACAO expressao_aritmetica
+    : expressao_aritmetica ( (IGUAL | DIFERENTE | MAIOR | MAIORIGUAL | MENOR | MENORIGUAL) expressao_aritmetica )?
+    ;
+
+expressao_aritmetica
+    : termo ( (ADICAO | SUBTRACAO) termo )*
+    ;
+
+termo
+    : fator ( (MULTIPLICA | DIVISAO) fator )*
+    ;
+
+fator
+    : INTEIRO
+    | FLOAT
+    | STRING
+    | ID
+    | ABRE_PAR expressao FECHA_PAR
     ;

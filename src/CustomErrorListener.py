@@ -7,10 +7,14 @@ class CustomErrorListener(ErrorListener):
 
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
         self.tem_erro = True
+
+        # Erro léxico
         if "token recognition error" in msg:
             simbolo = offendingSymbol.text if offendingSymbol else msg.split(":")[-1].strip().strip("'")
             mensagem = f"ERRO LÉXICO [Linha {line}, Coluna {column}]: Símbolo '{simbolo}' inválido."
-            print(f"\033[91m{mensagem}\033[0m")  # Exibe em vermelho no console
+            print(f"\033[91m{mensagem}\033[0m")  # Exibe em vermelho
+
+        # Erro sintático
         else:
             esperado = " "
             encontrado = offendingSymbol.text if offendingSymbol else "EOF"

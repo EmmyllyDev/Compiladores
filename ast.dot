@@ -1,0 +1,21 @@
+digraph tree {
+    "Node_0: programa";
+    "Node_1: Comando_declaracaoContext: n:int;";
+    "Node_2: Comando_declaracaoContext: i:int;";
+    "Node_3: Comando_declaracaoContext: j:int;";
+    "Node_4: Comando_declaracaoContext: k:int;";
+    "Node_5: Comando_declaracaoContext: valor:int;";
+    "Node_6: TerminalNodeImpl: inicio";
+    "Node_7: ComandosContext: n=5;";
+    "Node_8: ComandosContext: se(n<1){escreva(\"Erro: numero deve ser maior ou igual a 1\");}senao{i=0;enquanto(i<n)faca{j=0;enquanto(j<=i)faca{valor=1;se(j>0){valor=1;k=0;enquanto(k<j)faca{valor=(valor*(i-k));valor=(valor/(k+1));k=k+1;}}escreva(valor);j=j+1;}escreva(\"\");i=i+1;}}";
+    "Node_9: TerminalNodeImpl: fim";
+    "Node_0: programa" -> "Node_1: Comando_declaracaoContext: n:int;";
+    "Node_0: programa" -> "Node_2: Comando_declaracaoContext: i:int;";
+    "Node_0: programa" -> "Node_3: Comando_declaracaoContext: j:int;";
+    "Node_0: programa" -> "Node_4: Comando_declaracaoContext: k:int;";
+    "Node_0: programa" -> "Node_5: Comando_declaracaoContext: valor:int;";
+    "Node_0: programa" -> "Node_6: TerminalNodeImpl: inicio";
+    "Node_0: programa" -> "Node_7: ComandosContext: n=5;";
+    "Node_0: programa" -> "Node_8: ComandosContext: se(n<1){escreva(\"Erro: numero deve ser maior ou igual a 1\");}senao{i=0;enquanto(i<n)faca{j=0;enquanto(j<=i)faca{valor=1;se(j>0){valor=1;k=0;enquanto(k<j)faca{valor=(valor*(i-k));valor=(valor/(k+1));k=k+1;}}escreva(valor);j=j+1;}escreva(\"\");i=i+1;}}";
+    "Node_0: programa" -> "Node_9: TerminalNodeImpl: fim";
+}

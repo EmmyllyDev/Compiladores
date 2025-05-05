@@ -17,21 +17,12 @@ class fimlyListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by fimlyParser#declaracoes.
-    def enterDeclaracoes(self, ctx:fimlyParser.DeclaracoesContext):
+    # Enter a parse tree produced by fimlyParser#comando_declaracao.
+    def enterComando_declaracao(self, ctx:fimlyParser.Comando_declaracaoContext):
         pass
 
-    # Exit a parse tree produced by fimlyParser#declaracoes.
-    def exitDeclaracoes(self, ctx:fimlyParser.DeclaracoesContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#declaracao_var.
-    def enterDeclaracao_var(self, ctx:fimlyParser.Declaracao_varContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#declaracao_var.
-    def exitDeclaracao_var(self, ctx:fimlyParser.Declaracao_varContext):
+    # Exit a parse tree produced by fimlyParser#comando_declaracao.
+    def exitComando_declaracao(self, ctx:fimlyParser.Comando_declaracaoContext):
         pass
 
 
@@ -50,15 +41,6 @@ class fimlyListener(ParseTreeListener):
 
     # Exit a parse tree produced by fimlyParser#comandos.
     def exitComandos(self, ctx:fimlyParser.ComandosContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#comando.
-    def enterComando(self, ctx:fimlyParser.ComandoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#comando.
-    def exitComando(self, ctx:fimlyParser.ComandoContext):
         pass
 
 
@@ -86,6 +68,15 @@ class fimlyListener(ParseTreeListener):
 
     # Exit a parse tree produced by fimlyParser#lista_expressao.
     def exitLista_expressao(self, ctx:fimlyParser.Lista_expressaoContext):
+        pass
+
+
+    # Enter a parse tree produced by fimlyParser#bloco_comandos.
+    def enterBloco_comandos(self, ctx:fimlyParser.Bloco_comandosContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#bloco_comandos.
+    def exitBloco_comandos(self, ctx:fimlyParser.Bloco_comandosContext):
         pass
 
 
@@ -125,6 +116,24 @@ class fimlyListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by fimlyParser#expressao_logica.
+    def enterExpressao_logica(self, ctx:fimlyParser.Expressao_logicaContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#expressao_logica.
+    def exitExpressao_logica(self, ctx:fimlyParser.Expressao_logicaContext):
+        pass
+
+
+    # Enter a parse tree produced by fimlyParser#expressao_comparacao.
+    def enterExpressao_comparacao(self, ctx:fimlyParser.Expressao_comparacaoContext):
+        pass
+
+    # Exit a parse tree produced by fimlyParser#expressao_comparacao.
+    def exitExpressao_comparacao(self, ctx:fimlyParser.Expressao_comparacaoContext):
+        pass
+
+
     # Enter a parse tree produced by fimlyParser#expressao_aritmetica.
     def enterExpressao_aritmetica(self, ctx:fimlyParser.Expressao_aritmeticaContext):
         pass
@@ -143,30 +152,12 @@ class fimlyListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by fimlyParser#expressao_logica.
-    def enterExpressao_logica(self, ctx:fimlyParser.Expressao_logicaContext):
+    # Enter a parse tree produced by fimlyParser#fator.
+    def enterFator(self, ctx:fimlyParser.FatorContext):
         pass
 
-    # Exit a parse tree produced by fimlyParser#expressao_logica.
-    def exitExpressao_logica(self, ctx:fimlyParser.Expressao_logicaContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#fator_logico.
-    def enterFator_logico(self, ctx:fimlyParser.Fator_logicoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#fator_logico.
-    def exitFator_logico(self, ctx:fimlyParser.Fator_logicoContext):
-        pass
-
-
-    # Enter a parse tree produced by fimlyParser#expressao_comparacao.
-    def enterExpressao_comparacao(self, ctx:fimlyParser.Expressao_comparacaoContext):
-        pass
-
-    # Exit a parse tree produced by fimlyParser#expressao_comparacao.
-    def exitExpressao_comparacao(self, ctx:fimlyParser.Expressao_comparacaoContext):
+    # Exit a parse tree produced by fimlyParser#fator.
+    def exitFator(self, ctx:fimlyParser.FatorContext):
         pass
 
 
