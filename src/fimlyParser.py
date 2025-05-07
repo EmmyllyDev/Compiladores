@@ -1,4 +1,4 @@
-# Generated from fimly.g4 by ANTLR 4.13.1
+# Generated from fimly.g4 by ANTLR 4.13.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -158,7 +158,7 @@ class fimlyParser ( Parser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.13.1")
+        self.checkVersion("4.13.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -202,6 +202,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitFimly" ):
                 listener.exitFimly(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFimly" ):
+                return visitor.visitFimly(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -277,6 +283,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitComando_declaracao" ):
                 listener.exitComando_declaracao(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_declaracao" ):
+                return visitor.visitComando_declaracao(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -329,6 +341,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitTipo" ):
                 listener.exitTipo(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTipo" ):
+                return visitor.visitTipo(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -393,6 +411,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitComandos" ):
                 listener.exitComandos(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComandos" ):
+                return visitor.visitComandos(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -475,6 +499,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitComando_ler" ):
                 listener.exitComando_ler(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_ler" ):
+                return visitor.visitComando_ler(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -536,6 +566,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitComando_escrever" ):
                 listener.exitComando_escrever(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_escrever" ):
+                return visitor.visitComando_escrever(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -603,6 +639,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitLista_expressao" ):
                 listener.exitLista_expressao(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLista_expressao" ):
+                return visitor.visitLista_expressao(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -666,6 +708,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitBloco_comandos" ):
                 listener.exitBloco_comandos(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBloco_comandos" ):
+                return visitor.visitBloco_comandos(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -740,6 +788,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitComando_condicional" ):
                 listener.exitComando_condicional(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_condicional" ):
+                return visitor.visitComando_condicional(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -818,6 +872,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitComando_repeticao" ):
                 listener.exitComando_repeticao(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_repeticao" ):
+                return visitor.visitComando_repeticao(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -879,6 +939,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitComando_atribuicao" ):
                 listener.exitComando_atribuicao(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComando_atribuicao" ):
+                return visitor.visitComando_atribuicao(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -926,6 +992,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitExpressao" ):
                 listener.exitExpressao(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressao" ):
+                return visitor.visitExpressao(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -983,6 +1055,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitExpressao_logica" ):
                 listener.exitExpressao_logica(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressao_logica" ):
+                return visitor.visitExpressao_logica(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1065,6 +1143,12 @@ class fimlyParser ( Parser ):
             if hasattr( listener, "exitExpressao_comparacao" ):
                 listener.exitExpressao_comparacao(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressao_comparacao" ):
+                return visitor.visitExpressao_comparacao(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -1137,6 +1221,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitExpressao_aritmetica" ):
                 listener.exitExpressao_aritmetica(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressao_aritmetica" ):
+                return visitor.visitExpressao_aritmetica(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1212,6 +1302,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitTermo" ):
                 listener.exitTermo(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitTermo" ):
+                return visitor.visitTermo(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1290,6 +1386,12 @@ class fimlyParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitFator" ):
                 listener.exitFator(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFator" ):
+                return visitor.visitFator(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 

@@ -5,6 +5,7 @@ from src.parser import parse_file
 from src.CustomErrorListener import CustomErrorListener
 from src.scanner import scan_file
 from src.ast_visualizer import ASTVisualizer
+from src.fimlyInterp import FimlyExecutor
 
 def mostrar_arquivo(nome_arquivo):
     try:
@@ -44,16 +45,19 @@ def main():
 
     print("\nÁrvore de derivação (estrutura):")
     print(arvore.toStringTree(recog=parser))
+    print("\n === Saidas Esperadas ====");
 
     raiz = parse_file(arquivo_fimly)
+    executor = FimlyExecutor()
+    executor.visit(arvore)
     if raiz is None:
         return
 
+    print("\n");
     visualizer = ASTVisualizer()
 
     # Exporta para .dot
     visualizer.export_to_dot(raiz)
-
     # Gera imagem PNG
     visualizer.generate_png("ast.dot", "ast.png")
 

@@ -1,0 +1,21 @@
+digraph tree {
+    "programa";
+    "Comando_declaracaoContext: n:int;";
+    "Comando_declaracaoContext: i:int;";
+    "Comando_declaracaoContext: j:int;";
+    "Comando_declaracaoContext: k:int;";
+    "Comando_declaracaoContext: valor:int;";
+    "TerminalNodeImpl: inicio";
+    "ComandosContext: n=0;";
+    "ComandosContext: se(n<1){escreva(\"Erro: numero deve ser maior ou igual a 1\");}senao{i=0;enquanto(i<n)faca{j=0;enquanto(j<=i)faca{valor=1;se(j>0){k=0;enquanto(k<j)faca{valor=(valor*(i-k));valor=(valor/(k+1));k=k+1;}}escreva(valor);escreva(\" \");j=j+1;}escreva(\"\\n\");i=i+1;}}";
+    "TerminalNodeImpl: fim";
+    "programa" -> "Comando_declaracaoContext: n:int;";
+    "programa" -> "Comando_declaracaoContext: i:int;";
+    "programa" -> "Comando_declaracaoContext: j:int;";
+    "programa" -> "Comando_declaracaoContext: k:int;";
+    "programa" -> "Comando_declaracaoContext: valor:int;";
+    "programa" -> "TerminalNodeImpl: inicio";
+    "programa" -> "ComandosContext: n=0;";
+    "programa" -> "ComandosContext: se(n<1){escreva(\"Erro: numero deve ser maior ou igual a 1\");}senao{i=0;enquanto(i<n)faca{j=0;enquanto(j<=i)faca{valor=1;se(j>0){k=0;enquanto(k<j)faca{valor=(valor*(i-k));valor=(valor/(k+1));k=k+1;}}escreva(valor);escreva(\" \");j=j+1;}escreva(\"\\n\");i=i+1;}}";
+    "programa" -> "TerminalNodeImpl: fim";
+}

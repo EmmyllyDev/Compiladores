@@ -129,6 +129,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fimly; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterFimly(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitFimly(this);
+		}
 	}
 
 	public final FimlyContext fimly() throws RecognitionException {
@@ -195,6 +203,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_declaracao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_declaracao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_declaracao(this);
+		}
 	}
 
 	public final Comando_declaracaoContext comando_declaracao() throws RecognitionException {
@@ -233,6 +249,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tipo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterTipo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitTipo(this);
+		}
 	}
 
 	public final TipoContext tipo() throws RecognitionException {
@@ -286,6 +310,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comandos; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComandos(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComandos(this);
+		}
 	}
 
 	public final ComandosContext comandos() throws RecognitionException {
@@ -356,6 +388,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_ler; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_ler(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_ler(this);
+		}
 	}
 
 	public final Comando_lerContext comando_ler() throws RecognitionException {
@@ -400,6 +440,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_escrever; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_escrever(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_escrever(this);
+		}
 	}
 
 	public final Comando_escreverContext comando_escrever() throws RecognitionException {
@@ -456,6 +504,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_lista_expressao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterLista_expressao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitLista_expressao(this);
+		}
 	}
 
 	public final Lista_expressaoContext lista_expressao() throws RecognitionException {
@@ -510,6 +566,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bloco_comandos; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterBloco_comandos(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitBloco_comandos(this);
+		}
 	}
 
 	public final Bloco_comandosContext bloco_comandos() throws RecognitionException {
@@ -569,6 +633,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_condicional; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_condicional(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_condicional(this);
+		}
 	}
 
 	public final Comando_condicionalContext comando_condicional() throws RecognitionException {
@@ -629,6 +701,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_repeticao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_repeticao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_repeticao(this);
+		}
 	}
 
 	public final Comando_repeticaoContext comando_repeticao() throws RecognitionException {
@@ -674,6 +754,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_comando_atribuicao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterComando_atribuicao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitComando_atribuicao(this);
+		}
 	}
 
 	public final Comando_atribuicaoContext comando_atribuicao() throws RecognitionException {
@@ -712,6 +800,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterExpressao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitExpressao(this);
+		}
 	}
 
 	public final ExpressaoContext expressao() throws RecognitionException {
@@ -755,6 +851,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao_logica; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterExpressao_logica(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitExpressao_logica(this);
+		}
 	}
 
 	public final Expressao_logicaContext expressao_logica() throws RecognitionException {
@@ -821,6 +925,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao_comparacao; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterExpressao_comparacao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitExpressao_comparacao(this);
+		}
 	}
 
 	public final Expressao_comparacaoContext expressao_comparacao() throws RecognitionException {
@@ -885,6 +997,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expressao_aritmetica; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterExpressao_aritmetica(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitExpressao_aritmetica(this);
+		}
 	}
 
 	public final Expressao_aritmeticaContext expressao_aritmetica() throws RecognitionException {
@@ -953,6 +1073,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_termo; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterTermo(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitTermo(this);
+		}
 	}
 
 	public final TermoContext termo() throws RecognitionException {
@@ -1016,6 +1144,14 @@ public class fimlyParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_fator; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).enterFator(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof fimlyListener ) ((fimlyListener)listener).exitFator(this);
+		}
 	}
 
 	public final FatorContext fator() throws RecognitionException {
